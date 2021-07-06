@@ -6,18 +6,23 @@ Guesses = 3
 Win = False
 Active = True
 
+if Guesses == 0:
+  print("You're out of guesses. Restart the program to play again.")
+
+elif Active == False and Win == True:
+  print("That's right! You win. Restart the program to play again.")
+
 while Active == True:
   while Guesses > 0:
     num = input("Guess a random number from 1 to 10: ")
+    num = int(num)
     if num == numero:
-      print("That's right! You win.")
       Active = False 
-
-    else:
+      Win = True
+      Guesses = 0 
+    elif num > numero:
       Guesses = Guesses - 1
-      print("Not quite. You have " + str(Guesses) + " tries left. Try again.")
-  else: 
-    print("You are out of guesses. Restart the program to play again.")
-    Active = False
-
-     
+      print("You have " + str(Guesses) + " tries left. Your number is too big, so guess lower.")
+    elif num < numero: 
+      Guesses = Guesses - 1
+      print("You have " + str(Guesses) + " tries left. Your number is too small, so guess higher.")
