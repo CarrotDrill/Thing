@@ -12,9 +12,12 @@ while Active == True:
     if num == numero:
       print("That's right! You win.")
       Active = False 
+
     else:
       Guesses = Guesses - 1
       print("Not quite. You have " + str(Guesses) + " tries left. Try again.")
   else: 
-    sys.exit("You are out of guesses. Restart the program to try again.")
+    print("You are out of guesses. Restart the program to play again.")
+    Active = False
+
      
